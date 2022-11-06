@@ -1,13 +1,16 @@
-import { useState } from "react"
+import { TrendingCoins } from "@/utils/api-urls";
 
 export interface Currency {
-  exchange_id: string;
+  id: string;
   name: string;
 }
 
-export const GetCurrencies = async() => {
+export const GetCurrencies = async () => {
+  const currencies = await (
+    await fetch(
+      TrendingCoins('BRL')
+    )
+  ).json();
 
-    const currencies = (await (await fetch('https://pokeapi.co/api/v2/pokemon/pikachu')).json())
-
-    return currencies as Currency[];
-}
+  return currencies as Currency[];
+};

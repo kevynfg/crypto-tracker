@@ -4,7 +4,7 @@ interface HeaderProps {
     children: ReactNode
 }
 
-export default function Header({children} : HeaderProps) {
+export default function Header() {
     return (
         <>
         <header className="bg-red-600">
@@ -12,7 +12,6 @@ export default function Header({children} : HeaderProps) {
                 Logo
             </nav>
         </header>
-        {children}
        </>
     )
 }
