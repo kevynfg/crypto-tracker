@@ -1,21 +1,23 @@
-import { Currency, GetCurrencies } from "@/hooks/DefaultCurrency";
+"use client";
+import { use } from "react";
+import CurrencyTable from "@/components/CurrencyTable/CurrencyTable";
+import { makeQueryClient } from "@/utils/generic-query";
+import { Currency } from "@/@types/Currency";
+import { trendingCurrencies } from "@/utils/api-urls";
 
-export default async function Home() {
-  const currencies = await GetCurrencies();
+const QueryClient = makeQueryClient();
 
+export default function Home() {
+  const currencies = use(
+    QueryClient(
+      "trendingCurrencies",
+      () => fetch(trendingCurrencies()!).then((res) => res.json()) as Promise<Currency[]>
+    )
+  );
+  console.log(currencies);
   return (
-      <>
-      {currencies && currencies.length > 0 ? (
-        <ul className="flex flex-col">
-          {
-            currencies.map((currency: Currency) => (
-              <li key={currency.id}>
-                {currency.name || "Moeda sem registro"}
-              </li>
-            ))
-          }
-        </ul>
-       ) : null }
-      </>
-  )
+    <>
+      <CurrencyTable currencies={currencies} />
+    </>
+  );
 }

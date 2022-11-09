@@ -1,0 +1,47 @@
+[
+  {
+    "id": "bitcoin",
+    "name": "bitcoin",
+    "current_price": 92466,
+    "market_cap": 1762138385837,
+    "market_cap_rank": 1,
+    "total_volume": 483623722677,
+    "price_change_percentage_24h": -10.44053
+  },
+  {
+    "id": "ethereum",
+    "name": "ethereum",
+    "current_price": 6363.02,
+    "market_cap": 760352835567,
+    "market_cap_rank": 2,
+    "total_volume": 189250406958,
+    "price_change_percentage_24h": -17.72279
+  },
+  {
+    "id": "tether",
+    "name": "Tether",
+    "current_price": 5.15,
+    "market_cap": 359445460696,
+    "market_cap_rank": 3,
+    "total_volume": 711266864369,
+    "price_change_percentage_24h": -1.44192
+  },
+  {
+    "id": "binancecoin",
+    "name": "BNB",
+    "current_price": 1572.29,
+    "market_cap": 255233396303,
+    "market_cap_rank": 4,
+    "total_volume": 22952051563,
+    "price_change_percentage_24h": -8.40904
+  },
+  {
+    "id": "usd-coin",
+    "name": "USD Coin",
+    "current_price": 5.17,
+    "market_cap": 219738889317,
+    "market_cap_rank": 5,
+    "total_volume": 56673377827,
+    "price_change_percentage_24h": 1.12281
+  }
+]
