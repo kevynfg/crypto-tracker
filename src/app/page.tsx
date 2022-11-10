@@ -4,6 +4,7 @@ import CurrencyTable from "@/components/CurrencyTable/CurrencyTable";
 import { makeQueryClient } from "@/utils/generic-query";
 import { Currency } from "@/@types/Currency";
 import { trendingCurrencies } from "@/utils/api-urls";
+import PublicTreasuryCompanies from "@/components/PublicTreasuryCompanies/PublicTreasuryCompanies";
 
 const QueryClient = makeQueryClient();
 
@@ -16,8 +17,9 @@ export default function Home() {
   );
   console.log(currencies);
   return (
-    <>
+    <main>
+      <PublicTreasuryCompanies />
       <CurrencyTable currencies={currencies} />
-    </>
+    </main>
   );
 }

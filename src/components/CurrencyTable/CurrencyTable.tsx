@@ -23,9 +23,11 @@ export default function CurrencyTable({ currencies }: CurrencyTableProps) {
           <tr className="border-y-2">
             {tableHeadsWithClass.map((heads, index) => {
               const lastClass = tableHeadsWithClass.length;
-              const alignCenterLastRow = index + 1 === Number(lastClass) ? "text-center" : null;
+              const firstTableHead = 1;
+              const lessTableHeadWidth = (index + 1) === firstTableHead ? 'w-20 text-left' : defaultTableHeadClass;
+              const alignCenterLastRow = (index + 1) === Number(lastClass) ? "text-center" : null;
               return (
-                <th className={`${defaultTableHeadClass} ${alignCenterLastRow}`} key={heads}>
+                <th className={`${lessTableHeadWidth} ${alignCenterLastRow}`} key={heads}>
                   {heads}
                 </th>
               );
@@ -38,9 +40,9 @@ export default function CurrencyTable({ currencies }: CurrencyTableProps) {
                 <tr className="border-b" key={currency.id}>
                   <td>{currency.market_cap_rank}</td>
                   <td>{currency.name}</td>
-                  <td>{currency.current_price}</td>
-                  <td>{currency.market_cap}</td>
-                  <td>{currency.total_volume}</td>
+                  <td>R$ {currency.current_price.toLocaleString("pt-BR",{maximumSignificantDigits : 20, unitDisplay: 'long'})}</td>
+                  <td>R$ {currency.market_cap.toLocaleString("pt-BR",{maximumSignificantDigits : 20, unitDisplay: 'long'})}</td>
+                  <td>R$ {currency.total_volume.toLocaleString("pt-BR",{maximumSignificantDigits : 20, unitDisplay: 'long'})}</td>
                   <td>
                     <div className="flex items-center justify-center gap-2">
                       {checkCurrencyPositiveNegativeValue(currency.price_change_percentage_24h)}
