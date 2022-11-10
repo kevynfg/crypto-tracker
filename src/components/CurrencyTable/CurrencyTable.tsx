@@ -14,13 +14,13 @@ export default function CurrencyTable({ currencies }: CurrencyTableProps) {
   }
 
   const sortedCurrencies = currencies && currencies.sort((a, b) => a.market_cap_rank - b.market_cap_rank);
-  const defaultTableHeadClass = "w-40 text-left";
+  const defaultTableHeadClass = "w-48 text-left";
   const tableHeadsWithClass = ["#", "Name", "Current Price", "Market Cap.", "Volume", "24h"];
   return (
     <div className="flex justify-center">
       <table className="">
         <thead>
-          <tr className="border-y-2">
+          <tr className="border-y-2 w-">
             {tableHeadsWithClass.map((heads, index) => {
               const lastClass = tableHeadsWithClass.length;
               const firstTableHead = 1;

@@ -13,3 +13,7 @@ export const TrendingCoins = (currency: string) =>
 export const trendingCurrencies = () => {
   return process.env.NEXT_PUBLIC_TRENDING_CURRENCIES
 }
+
+export const globalTreasury = () => {
+  return process.env.NEXT_PUBLIC_GLOBAL_TREASURY
+}
