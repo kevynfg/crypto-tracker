@@ -5,7 +5,19 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: 'Roboto, sans-serif'
+      },
+      backgroundImage: {
+        app: 'url(/lines-bg.png)'
+      },
+      colors: {
+        gray: {
+          900: '#121214',
+        }
+      },
+    },
   },
   plugins: [],
 }

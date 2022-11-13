@@ -18,7 +18,7 @@ export default function CurrencyTable({ currencies }: CurrencyTableProps) {
   const tableHeadsWithClass = ["#", "Name", "Current Price", "Market Cap.", "Volume", "24h"];
   return (
     <div className="flex justify-center">
-      <table className="">
+      <table className="bg-slate-300 text-black ring-offset-4">
         <thead>
           <tr className="border-y-2 w-">
             {tableHeadsWithClass.map((heads, index) => {
@@ -39,7 +39,7 @@ export default function CurrencyTable({ currencies }: CurrencyTableProps) {
             ? sortedCurrencies.map((currency) => (
                 <tr className="border-b" key={currency.id}>
                   <td>{currency.market_cap_rank}</td>
-                  <td>{currency.name}</td>
+                  <td className="font-semibold">{currency.name}</td>
                   <td>R$ {currency.current_price.toLocaleString("pt-BR",{maximumSignificantDigits : 20, unitDisplay: 'long'})}</td>
                   <td>R$ {currency.market_cap.toLocaleString("pt-BR",{maximumSignificantDigits : 20, unitDisplay: 'long'})}</td>
                   <td>R$ {currency.total_volume.toLocaleString("pt-BR",{maximumSignificantDigits : 20, unitDisplay: 'long'})}</td>

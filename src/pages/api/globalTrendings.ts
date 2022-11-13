@@ -1,17 +1,17 @@
-import { Currency } from "@/@types/Currency";
-import { globalTreasury } from "@/utils/api-urls";
+import { IGlobalTrendingCurrencies } from "@/@types/GlobalTrendingCurrencies";
+import { GlobalTrendings } from "@/utils/api-urls";
 import { makeQueryClient } from "@/utils/generic-query";
 import { NextApiRequest, NextApiResponse } from "next";
-import globalTreasuryJson from '../../../publictreasury.json';
+import globalTrending from '../../../globalTrending.json';
 
 const QueryClient = makeQueryClient();
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<typeof globalTreasuryJson>) {
-//   const currencies = await
-//     QueryClient(
-//       "globalTrendings",
-//       () => fetch(globalTreasury()!).then((res) => res.json()) as Promise<Currency[]>
-//     )
+export default async function handler(req: NextApiRequest, res: NextApiResponse<IGlobalTrendingCurrencies>) {
+  const currencies = await
+    QueryClient(
+      "globalTrendings",
+      () => fetch(GlobalTrendings()!).then((res) => res.json()) as Promise<IGlobalTrendingCurrencies>
+    )
  
 //   const formattedCurrencies = [] as Currency[]
 //   for (let currency of currencies) {
@@ -27,5 +27,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 //           })
 //       }
 //   }
-  return res.status(200).json(globalTreasuryJson);
+  return res.status(200).json(currencies);
 }

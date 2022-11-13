@@ -10,6 +10,9 @@ export const HistoricalChart = (id: string, days = 365, currency: string) =>
 export const TrendingCoins = (currency: string) =>
   `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=gecko_desc&per_page=10&page=1&sparkline=false&price_change_percentage=24h`;
 
+  export const GlobalTrendings = () =>
+  `https://api.coingecko.com/api/v3/global`;
+
 export const trendingCurrencies = () => {
   return process.env.NEXT_PUBLIC_TRENDING_CURRENCIES
 }
