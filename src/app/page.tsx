@@ -11,12 +11,6 @@ import GlobalTrendingCurrencies from "@/components/GlobalTrendingCurrencies/Glob
 const QueryClient = makeQueryClient();
 
 export default function Home() {
-  // const currencies = use(
-  //   QueryClient(
-  //     "trendingCurrencies",
-  //     () => fetch(TrendingCoins("BRL")!).then((res) => res.json()) as Promise<Currency[]>
-  //   )
-  // );
   const currencies = use(
     QueryClient(
       "trendingCurrencies",
@@ -25,18 +19,31 @@ export default function Home() {
   );
 
   const globalTrendings = use(
-    QueryClient("globalTrendings", () => fetch(globalTreasury()!).then((res) => res.json()) as Promise<IGlobalTrendingCurrencies>)
-  )
+    QueryClient(
+      "globalTrendings",
+      () => fetch(globalTreasury()!).then((res) => res.json()) as Promise<IGlobalTrendingCurrencies>
+    )
+  );
 
-  console.log('currencies', currencies);
-  console.log('treasury', globalTrendings);
+  console.log("currencies", currencies);
+  console.log("treasury", globalTrendings);
   return (
-   <>
-    <Head><title>Crypto Tracker</title></Head>
-    <main>
-      <GlobalTrendingCurrencies currencies={globalTrendings} />
-      <CurrencyTable currencies={currencies} />
-    </main>
-   </>
+    <>
+      <Head>
+        <title>Crypto Tracker</title>
+      </Head>
+      <main>
+        <div className="w-full h-screen max-w-[1100px] m-auto">
+          <div className="flex flex-col justify-center items-center my-4">
+            <h1 className="text-2xl">Keep track of currencies live</h1>
+            <h4>Top Coins by Market Cap</h4>
+          </div>
+          <div className="rounded-lg">
+            <GlobalTrendingCurrencies currencies={globalTrendings} />
+            <CurrencyTable currencies={currencies} />
+          </div>
+        </div>
+      </main>
+    </>
   );
 }

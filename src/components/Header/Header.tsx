@@ -7,7 +7,7 @@ export default function Header() {
             <nav>
                 <div className="w-48 ml-6">
                     <Link href={`/`}>
-                        <span className="text-white font-bold leading-tight">Crypto Tracker</span>
+                        <span className="text-white font-bold leading-tight ml-8">Crypto Tracker</span>
                     </Link>
                 </div>
             </nav>
