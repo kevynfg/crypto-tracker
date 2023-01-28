@@ -4,7 +4,6 @@ import CurrencyTable from "@/components/CurrencyTable/CurrencyTable";
 import { makeQueryClient } from "@/utils/generic-query";
 import { Currency } from "@/@types/Currency";
 import { trendingCurrencies, globalTreasury } from "@/utils/api-urls";
-import Head from "next/head";
 import { IGlobalTrendingCurrencies } from "@/@types/GlobalTrendingCurrencies";
 import GlobalTrendingCurrencies from "@/components/GlobalTrendingCurrencies/GlobalTrendingCurrencies";
 
@@ -29,9 +28,9 @@ export default function Home() {
   console.log("treasury", globalTrendings);
   return (
     <>
-      <Head>
+      <head>
         <title>Crypto Tracker</title>
-      </Head>
+      </head>
       <main>
         <div className="w-full h-screen max-w-[1100px] m-auto">
           <div className="flex flex-col justify-center items-center my-4">
